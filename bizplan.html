@@ -68,7 +68,7 @@ footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;fo
 <a href="#" class="tab-link" data-panel="edge">Edge-ЦОД</a>
 <a href="#" class="tab-link" data-panel="production">Производство</a>
 <a href="#" class="tab-link" data-panel="logyard">Лог. двор</a>
-<a href="#" class="tab-link" data-panel="mining">Майнинг</a>
+<a href="#" class="tab-link" data-panel="reserve">Резерв 0,4 га</a>
 <a href="#" class="tab-link" data-panel="competitors">Конкуренты</a>
 <a href="#" class="tab-link" data-panel="summary">Сводка плана</a>
 </div></nav>
@@ -86,7 +86,7 @@ footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;fo
 <!-- ОБЗОР -->
 <div class="panel on" id="panel-overview">
 <h2>Структура бизнеса на участке</h2>
-<p class="lead">На 19 га размещается <strong style="color:var(--text)">портфель из шести коммерческих направлений</strong> (плюс обязательная инфраструктура). Ядро — складская и индустриальная аренда (74% земли). Edge-ЦОД и майнинг — дополнительные модули с отдельными рисками.</p>
+<p class="lead">На 19 га — <strong style="color:var(--text)">пять публичных направлений</strong> (плюс инфраструктура). Ядро — склад и инд. парк. Edge-ЦОД — только при LOI. Майнинг в публичное предложение не входит.</p>
 <div class="table-wrap">
 <table>
 <colgroup><col style="width:22%"><col style="width:10%"><col style="width:14%"><col style="width:18%"><col style="width:18%"><col style="width:18%"></colgroup>
@@ -97,7 +97,7 @@ footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;fo
 <tr><td><a href="#" data-goto="edge" style="color:var(--accent)">Edge-ЦОД (colocation)</a></td><td class="num">0,6 га</td><td class="num">21%</td><td>Аренда стоек</td><td>Банки, ИТ, госсектор</td><td><span class="tag y">Средний</span></td></tr>
 <tr><td><a href="#" data-goto="production" style="color:var(--accent)">Производство 1 440 м²</a></td><td class="num">0,2 га</td><td class="num">6%</td><td>Аренда / собственное</td><td>Металлообработка, пищевка</td><td><span class="tag g">Низкий</span></td></tr>
 <tr><td><a href="#" data-goto="logyard" style="color:var(--accent)">Логистический двор</a></td><td class="num">1,2 га</td><td class="num">—</td><td>Доп. услуга к складу</td><td>Грузовладельцы, ж/д</td><td><span class="tag g">Низкий</span></td></tr>
-<tr><td><a href="#" data-goto="mining" style="color:var(--accent)">Майнинг (mining)</a></td><td class="num">0,4 га</td><td class="num">опц.</td><td>Добыча криптовалют</td><td>Собственный актив</td><td><span class="tag r">Высокий</span></td></tr>
+<tr><td>Резерв (склад-light / парк)</td><td class="num">0,4 га</td><td class="num">—</td><td>Расширение парка</td><td>Резиденты парка</td><td><span class="tag g">Низкий</span></td></tr>
 </tbody>
 </table>
 </div>
@@ -110,7 +110,7 @@ footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;fo
 <div class="def-box">
 <div class="term">Определение</div>
 <p><strong>Склад B+ (business+)</strong> — современный тёплый складской комплекс с высотой потолков 10–12 м, ровным антипылевым полом, доковыми воротами, зоной кросс-докинга (перегрузка без хранения), охраной и пожарной сигнализацией. Класс ниже A/A+ (нет автоматизации «под ключ» и идеального микроклимата), но выше C — подходит для e-commerce (интернет-торговли), 3PL (аутсорсинг логистики) и дистрибуции.</p>
-<p class="gloss">На объекте: три очереди строительства, итого <strong>35 000 м²</strong> на <strong>9,5 га</strong>. Ставка аренды в модели: <strong>6 800 ₽/м²·мес</strong> (скидка ~15% к типовым ставкам МО).</p>
+<p class="gloss">На объекте: три очереди, итого <strong>35 000 м²</strong> на <strong>9,5 га</strong>. В модели: <strong>6 800 ₽/м²·мес</strong>; консервативно для инвестора — <strong>6 000 ₽</strong> и загрузка 70–75% без якоря.</p>
 </div>
 <h3>Что именно предлагаем</h3>
 <ul class="bp-list">
@@ -224,7 +224,8 @@ footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;fo
 <div class="comp-card"><h4>Москва — крупные colocation</h4><p>РТК-ЦОД, Икселлерайт, Датапро, Linx, Selectel — ставки 140–200 тыс. ₽/стойка, очередь на 3–12 мес. <strong>Наше УТП:</strong> место сразу, дешевле на 25–30%, приемлемая задержка для DR.</p></div>
 <div class="comp-card"><h4>МО — Edge и корпоративные ЦОД</h4><p>Wildberries (Дубна, Наро-Фоминск) — закрытые, не colocation. Атомдата (Калуга/МО) — госсектор. <strong>Наше УТП:</strong> открытый коммерческий colocation на юге МО, ближе к клиентам Серпухов/Чехов/Тула.</p></div>
 <div class="comp-card"><h4>Облака (AWS, Yandex Cloud)</h4><p>Не прямые конкуренты для dedicated (выделенных) серверов и 152-ФЗ on-premise. Клиенты с жёстким compliance всё равно нуждаются в физическом ЦОД.</p></div>
-<div class="notice"><strong>Условие запуска:</strong> LOI (соглашение о намерениях) от якоря на 30–50% стоек до начала строительства. Без якоря — отложить фазу 3.</div>
+<div class="notice"><strong>Условие запуска:</strong> LOI от якоря на 30–50% стоек до строительства. Без якоря — отложить фазу 3.</div>
+<div class="notice danger"><strong>Финансирование:</strong> при стоимости долга 17% и доле заёмных 60% standalone Edge-ЦОД (IRR 8–11%) даёт отрицательный NPV. Строить только при долге &lt;14% или якорном инвесторе. Нужна ВОЛС до Москвы (15–40 млн ₽, 12–18 мес.).</div>
 <div class="grid g4" style="margin-top:16px">
 <div class="card"><div class="lbl">CAPEX 1 МВт</div><div class="val">1,45 млрд ₽</div></div>
 <div class="card"><div class="lbl">Выручка год 3</div><div class="val" style="color:var(--green)">139 млн ₽</div></div>
@@ -306,43 +307,21 @@ footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;fo
 <div class="comp-card"><h4>Некондиционные площадки</h4><p>Грунтовые дворы в промзоне — дёшево, но без ограждения и норм. <strong>УТП:</strong> охрана КПП, твёрдое покрытие, освещение.</p></div>
 </div>
 
-<!-- МАЙНИНГ -->
-<div class="panel" id="panel-mining">
-<h2>Майнинг-ферма (добыча криптовалют)</h2>
+<!-- РЕЗЕРВ -->
+<div class="panel" id="panel-reserve">
+<h2>Резервная зона 0,4 га</h2>
 <div class="def-box">
-<div class="term">Определение</div>
-<p><strong>Майнинг (mining)</strong> — промышленная добыча криптовалют (в первую очередь Bitcoin) с помощью специализированных компьютеров ASIC. На объекте это <strong>контейнерный модуль</strong> 0,5–1 МВт у КТП: контейнеры с майнерами, система охлаждения, отдельный учёт электроэнергии.</p>
-<p class="gloss"><strong>Опциональная</strong> активность. Запуск только после юридического заключения по МО и при тарифе ≤6 ₽/кВт·ч. При запрете — перепрофилирование в склад-light 1 500 м².</p>
+<div class="term">Назначение</div>
+<p>Участок <strong>0,4 га</strong> в генплане зарезервирован под <strong>склад-light</strong> (~1 500 м²) или <strong>расширение индустриального парка</strong> (1–2 корпуса). В публичное инвестиционное предложение <strong>майнинг не входит</strong>: при тарифе 7,5 ₽/кВт·ч безубыток ~5,8–6,2 ₽; в МО действуют ограничения на проммайнинг.</p>
+<p class="gloss">Перепрофилирование в склад-light — 3–4 месяца при отказе от альтернативных высокорисковых сценариев.</p>
 </div>
-<h3>Модель на объекте</h3>
+<h3>Приоритетные варианты использования</h3>
 <ul class="bp-list">
-<li>2 контейнера Immersion / воздушное охлаждение</li>
-<li>~140–320 машин ASIC (0,5–1 МВт)</li>
-<li>Собственный актив (не colocation для третьих лиц — регуляторный риск)</li>
-<li>Доход = добытый BTC минус OPEX (электричество, обслуживание)</li>
+<li>Склад-light 1 500 м² для резидентов парка или overflow склада B+</li>
+<li>Два корпуса инд. парка по 750 м² при спросе на мелкие площади</li>
+<li>Буфер под ж/д отгрузку (навес + площадка) при развитии лог. двора</li>
 </ul>
-<h3>«Клиенты»</h3>
-<div class="notice">Майнинг — <strong>не арендный бизнес</strong>. Потребители услуги — только собственник/инвестор актива. Внешние «клиенты» возможны только как <em>инвест-партнёры</em> (доля в SPV майнинга), не как арендаторы мощности.</div>
-<div class="table-wrap">
-<table>
-<colgroup><col style="width:30%"><col style="width:70%"></colgroup>
-<thead><tr><th>Тип партнёра</th><th>Кто может участвовать</th></tr></thead>
-<tbody>
-<tr><td>Финансовый инвестор</td><td>Family office, крипто-фонды с фокусом на инфраструктуру — co-invest в оборудование</td></tr>
-<tr><td>Оператор майнинга</td><td>Компании с опытом эксплуатации ASIC (BIT Mining, региональные фермы) — управление по договору</td></tr>
-<tr><td>Энергоинвестор</td><td>Держатель льготного тарифа или генерации — партнёрство «энергия + площадка»</td></tr>
-</tbody>
-</table>
-</div>
-<h3>Конкуренты</h3>
-<div class="comp-card"><h4>Крупные фермы РФ (Иркутск, Красноярск, Калининград)</h4><p>Тариф 2,5–4,5 ₽/кВт·ч. <strong>Наш минус:</strong> дороже электричество. <strong>Плюс:</strong> близость к Москве для обслуживания и легализации (если разрешат в МО).</p></div>
-<div class="comp-card"><h4>Майнинг-отели (colocation ASIC)</h4><p>BitRiver, региональные хостинги ASIC. Конкурируют за тех, кто не хочет владеть площадкой. <strong>Наше позиционирование:</strong> собственная ферма, не хостинг для сторонних.</p></div>
-<div class="grid g4" style="margin-top:16px">
-<div class="card"><div class="lbl">CAPEX 0,5 МВт</div><div class="val">220–320 млн ₽</div></div>
-<div class="card"><div class="lbl">EBITDA (при удаче)</div><div class="val" style="color:var(--yellow)">10–30 млн ₽</div></div>
-<div class="card"><div class="lbl">Риск</div><div class="val" style="font-size:16px;color:var(--red)">Высокий</div></div>
-<div class="card"><div class="lbl">Рекомендация</div><div class="val" style="font-size:14px">Опционально</div></div>
-</div>
+<div class="notice ok"><strong>Рекомендация:</strong> не включать майнинг в материалы для банков и внешних инвесторов — снижает доверие к проекту.</div>
 </div>
 
 <!-- КОНКУРЕНТЫ СВОД -->
@@ -365,7 +344,7 @@ footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;fo
 <tr><td rowspan="2">Производство</td><td>Аренда на заводах</td><td>Серпухов</td><td>Цена</td><td>РНС готово, новое здание</td><td><span class="tag g">Низкое</span></td></tr>
 <tr><td>Строительство на своей земле</td><td>МО</td><td>Кастомизация</td><td>Скорость ввода 10 мес.</td><td><span class="tag y">Средн.</span></td></tr>
 <tr><td>Лог. двор</td><td>Контейнерные терминалы</td><td>Электроугли, Подольск</td><td>Масштаб, ж/д хабы</td><td>Локальный сервис резидентам</td><td><span class="tag g">Низкое</span></td></tr>
-<tr><td>Майнинг</td><td>Фермы Сибири / ДФО</td><td>Иркутск и др.</td><td>Тариф 3 ₽/кВт·ч</td><td>Только при льготном тарифе в МО</td><td><span class="tag r">Высок.</span></td></tr>
+<tr><td>Резерв / ж/д</td><td>Контейнерные терминалы</td><td>Электроугли, Подольск</td><td>Масштаб хабов</td><td>Локальный двор + ветка у участка</td><td><span class="tag g">Низкое</span></td></tr>
 </tbody>
 </table>
 </div>
@@ -394,10 +373,10 @@ footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;fo
 <colgroup><col style="width:12%"><col style="width:28%"><col style="width:20%"><col style="width:40%"></colgroup>
 <thead><tr><th>Фаза</th><th>Действия</th><th class="num">Инвестиции</th><th>KPI успеха</th></tr></thead>
 <tbody>
-<tr><td>1 · 0–12 мес.</td><td>Производство 1 440 м², проектирование, ТУ на 1,5 МВт, маркетинг</td><td class="num">380 млн ₽</td><td>LOI на 30% склада ф.1 или якорь производства</td></tr>
+<tr><td>1 · 0–12 мес.</td><td>Производство 1 440 м², проектирование, <strong>заявка ТУ в Россети</strong></td><td class="num">380 млн ₽</td><td>LOI на 30% склада ф.1 или якорь производства</td></tr>
 <tr><td>2 · 12–24 мес.</td><td>Склад 20 000 м², инд. парк 6 корпусов, дороги</td><td class="num">2 150 млн ₽</td><td>Загрузка склада 50%, парка 40%</td></tr>
 <tr><td>3 · 24–36 мес.</td><td>Склад 15 000 м², Edge-ЦОД 1 МВт, парк до 18 корп.</td><td class="num">2 750 млн ₽</td><td>Colocation 50% стоек, склад 75%</td></tr>
-<tr><td>4 · 36–48 мес.</td><td>Склад ф.3, стабилизация, опц. майнинг</td><td class="num">890 млн ₽</td><td>Загрузка портфеля 85%, EBITDA 510 млн ₽</td></tr>
+<tr><td>4 · 36–48 мес.</td><td>Склад ф.3, стабилизация, резерв 0,4 га</td><td class="num">890 млн ₽</td><td>Загрузка портфеля 75–85%, EBITDA 510 млн ₽</td></tr>
 </tbody>
 </table>
 </div>
@@ -410,7 +389,7 @@ footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;fo
 </div>
 
 <h3>Критические факторы успеха</h3>
-<div class="notice danger"><strong>1. ТУ на электричество</strong> — без подтверждённой мощности 1,5+ МВт Edge-ЦОД и майнинг не запускать.<br><strong>2. Якорный арендатор склада</strong> — до старта фазы 2 нужен LOI на ≥8 000 м².<br><strong>3. LOI на colocation</strong> — до фазы 3 нужен якорь на ≥30 стоек.<br><strong>4. Команда</strong> — управляющая компания с опытом industrial и отдельный оператор ЦОД (или аутсорс).</div>
+<div class="notice danger"><strong>1. ТУ на электричество</strong> — шаг №1, без ТУ банки не финансируют склад и ЦОД.<br><strong>2. Якорный арендатор склада</strong> — до фазы 2 нужен LOI на ≥8 000 м².<br><strong>3. LOI на colocation</strong> — до фазы 3, и долг &lt;14% для Edge.<br><strong>4. Команда</strong> — УК на 12–18 арендаторов парка + оператор ЦОД (аутсорс).</div>
 
 <p style="margin-top:24px;font-size:14px;color:var(--muted)">Детальные финансовые таблицы, графики и сценарии — на странице <a href="index.html#investplan" style="color:var(--accent)">инвестиционного плана</a>. Технический анализ участка — <a href="index.html" style="color:var(--accent)">основной сайт</a>.</p>
 </div>
@@ -419,6 +398,7 @@ footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;fo
 
 <footer>
 <p><strong>Бизнес-план · Серпухов 19 га</strong></p>
+<p style="margin-top:6px">Контакт: <strong>[ФИО]</strong> · [+7 …] · [email]</p>
 <p style="margin-top:6px">Июнь 2026 · Оценочный документ · Требует уточнения после ТУ и переговоров с якорными арендаторами</p>
 </footer>
 
