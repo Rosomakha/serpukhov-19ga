@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Бизнес-план — Серпухов 19 га</title>
+<style>
+:root{--bg:#0c1117;--surface:#151c27;--surface2:#1e2838;--border:#2a3a52;--text:#eef2f8;--muted:#8fa3be;--accent:#4d9fff;--accent-dim:#4d9fff22;--green:#34d399;--yellow:#fbbf24;--red:#f87171;--purple:#a78bfa}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+nav{position:sticky;top:0;z-index:200;background:rgba(12,17,23,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+nav .inner{max-width:1180px;margin:0 auto;padding:0 20px;display:flex;gap:4px;overflow-x:auto;height:54px;align-items:center}
+nav a{color:var(--muted);text-decoration:none;font-size:12.5px;white-space:nowrap;padding:7px 11px;border-radius:6px;transition:.15s}
+nav a:hover,nav a.active{color:var(--text);background:var(--surface2)}
+nav a.ext{color:var(--accent)}
+.bp-header{padding:40px 20px 28px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,var(--surface2) 0%,var(--bg) 100%)}
+.bp-header .inner{max-width:1180px;margin:0 auto}
+.badge{display:inline-block;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);background:var(--accent-dim);padding:5px 12px;border-radius:4px;margin-bottom:14px}
+h1{font-size:clamp(26px,3.5vw,36px);font-weight:800;line-height:1.2;margin-bottom:10px}
+h2{font-size:20px;font-weight:700;margin:0 0 16px;color:var(--text)}
+h3{font-size:15px;font-weight:600;margin:20px 0 10px;color:var(--text)}
+.container{max-width:1180px;margin:0 auto;padding:24px 20px 80px}
+.lead{font-size:16px;color:var(--muted);max-width:900px;margin-bottom:8px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:20px 0 24px}
+.tab{padding:8px 14px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-size:12.5px;font-family:inherit}
+.tab.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.panel{display:none}
+.panel.on{display:block}
+.def-box{background:var(--surface2);border:1px solid var(--accent);border-radius:12px;padding:20px 22px;margin-bottom:20px}
+.def-box .term{font-size:11px;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.def-box p{font-size:15px;color:var(--text);line-height:1.6}
+.def-box .gloss{font-size:13px;color:var(--muted);margin-top:8px}
+.grid{display:grid;gap:16px}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:900px){.g4,.g3,.g2{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px}
+.card .lbl{font-size:11px;color:var(--muted)}
+.card .val{font-size:22px;font-weight:800;margin:4px 0}
+.card .sub{font-size:12px;color:var(--muted)}
+.table-wrap{overflow-x:auto;margin:14px 0;border:1px solid var(--border);border-radius:10px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed;min-width:640px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:11px}
+tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.notice{border-left:3px solid var(--yellow);background:var(--surface2);padding:14px 16px;border-radius:0 10px 10px 0;margin:16px 0;font-size:14px;color:var(--muted)}
+.notice.ok{border-color:var(--green)}.notice.danger{border-color:var(--red)}
+.notice strong{color:var(--text)}
+ul.bp-list{margin:8px 0 8px 18px;color:var(--muted);font-size:14px}
+ul.bp-list li{margin:4px 0}
+.tag{display:inline-block;font-size:11px;padding:3px 9px;border-radius:4px;margin:2px 4px 2px 0;background:var(--surface2);color:var(--muted)}
+.tag.g{background:#34d39922;color:var(--green)}.tag.y{background:#fbbf2422;color:var(--yellow)}.tag.r{background:#f8717122;color:var(--red)}
+.comp-card{border-left:3px solid var(--border);padding-left:14px;margin:12px 0}
+.comp-card h4{font-size:14px;margin-bottom:4px}
+.comp-card p{font-size:13px;color:var(--muted)}
+footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<nav><div class="inner">
+<a href="index.html" class="ext">← Анализ участка</a>
+<a href="#" class="tab-link active" data-panel="overview">Обзор</a>
+<a href="#" class="tab-link" data-panel="warehouse">Склад B+</a>
+<a href="#" class="tab-link" data-panel="indpark">Инд. парк</a>
+<a href="#" class="tab-link" data-panel="edge">Edge-ЦОД</a>
+<a href="#" class="tab-link" data-panel="production">Производство</a>
+<a href="#" class="tab-link" data-panel="logyard">Лог. двор</a>
+<a href="#" class="tab-link" data-panel="mining">Майнинг</a>
+<a href="#" class="tab-link" data-panel="competitors">Конкуренты</a>
+<a href="#" class="tab-link" data-panel="summary">Сводка плана</a>
+</div></nav>
+
+<header class="bp-header">
+<div class="inner">
+<div class="badge">Бизнес-план · июнь 2026</div>
+<h1>Многофункциональный промышленно-логистический комплекс · 19 га · Серпухов</h1>
+<p class="lead">Чёткие определения каждого вида деятельности, целевые клиенты, конкурентная среда и операционная модель. Дополняет <a href="index.html#investplan" style="color:var(--accent)">инвестиционный план</a> на основном сайте.</p>
+</div>
+</header>
+
+<div class="container">
+
+<!-- ОБЗОР -->
+<div class="panel on" id="panel-overview">
+<h2>Структура бизнеса на участке</h2>
+<p class="lead">На 19 га размещается <strong style="color:var(--text)">портфель из шести коммерческих направлений</strong> (плюс обязательная инфраструктура). Ядро — складская и индустриальная аренда (74% земли). Edge-ЦОД и майнинг — дополнительные модули с отдельными рисками.</p>
+<div class="table-wrap">
+<table>
+<colgroup><col style="width:22%"><col style="width:10%"><col style="width:14%"><col style="width:18%"><col style="width:18%"><col style="width:18%"></colgroup>
+<thead><tr><th>Вид деятельности</th><th class="num">Земля</th><th class="num">Доля выручки (год 5)</th><th>Модель дохода</th><th>Ключевой клиент</th><th>Риск</th></tr></thead>
+<tbody>
+<tr><td><a href="#" data-goto="warehouse" style="color:var(--accent)">Склад B+ (business+)</a></td><td class="num">9,5 га</td><td class="num">43%</td><td>Аренда м²</td><td>E-commerce, 3PL</td><td><span class="tag g">Низкий</span></td></tr>
+<tr><td><a href="#" data-goto="indpark" style="color:var(--accent)">Индустриальный парк</a></td><td class="num">4,5 га</td><td class="num">30%</td><td>Аренда корпусов</td><td>Производство, сборка</td><td><span class="tag g">Низкий</span></td></tr>
+<tr><td><a href="#" data-goto="edge" style="color:var(--accent)">Edge-ЦОД (colocation)</a></td><td class="num">0,6 га</td><td class="num">21%</td><td>Аренда стоек</td><td>Банки, ИТ, госсектор</td><td><span class="tag y">Средний</span></td></tr>
+<tr><td><a href="#" data-goto="production" style="color:var(--accent)">Производство 1 440 м²</a></td><td class="num">0,2 га</td><td class="num">6%</td><td>Аренда / собственное</td><td>Металлообработка, пищевка</td><td><span class="tag g">Низкий</span></td></tr>
+<tr><td><a href="#" data-goto="logyard" style="color:var(--accent)">Логистический двор</a></td><td class="num">1,2 га</td><td class="num">—</td><td>Доп. услуга к складу</td><td>Грузовладельцы, ж/д</td><td><span class="tag g">Низкий</span></td></tr>
+<tr><td><a href="#" data-goto="mining" style="color:var(--accent)">Майнинг (mining)</a></td><td class="num">0,4 га</td><td class="num">опц.</td><td>Добыча криптовалют</td><td>Собственный актив</td><td><span class="tag r">Высокий</span></td></tr>
+</tbody>
+</table>
+</div>
+<div class="notice ok"><strong>Бизнес-модель:</strong> единый оператор комплекса (SPV — проектная компания) владеет активами и сдаёт площади в аренду. Логистический двор и инженерия (КТП, дороги) — cross-sell (перекрёстные продажи) к складам, не отдельный P&amp;L. Управляющая компания — 1 офис на 0,3 га.</div>
+</div>
+
+<!-- СКЛАД B+ -->
+<div class="panel" id="panel-warehouse">
+<h2>Складская логистика класса B+ (business+)</h2>
+<div class="def-box">
+<div class="term">Определение</div>
+<p><strong>Склад B+ (business+)</strong> — современный тёплый складской комплекс с высотой потолков 10–12 м, ровным антипылевым полом, доковыми воротами, зоной кросс-докинга (перегрузка без хранения), охраной и пожарной сигнализацией. Класс ниже A/A+ (нет автоматизации «под ключ» и идеального микроклимата), но выше C — подходит для e-commerce (интернет-торговли), 3PL (аутсорсинг логистики) и дистрибуции.</p>
+<p class="gloss">На объекте: три очереди строительства, итого <strong>35 000 м²</strong> на <strong>9,5 га</strong>. Ставка аренды в модели: <strong>6 800 ₽/м²·мес</strong> (скидка ~15% к типовым ставкам МО).</p>
+</div>
+<h3>Что именно предлагаем</h3>
+<ul class="bp-list">
+<li>Блоки 5 000–20 000 м² с возможностью деления от 2 000 м²</li>
+<li>Доки: 1 на 500–700 м², уровневые пандусы для фур</li>
+<li>Офисно-бытовые блоки 5–8% площади</li>
+<li>Общая охрана, видеонаблюдение, КПП комплекса</li>
+<li>Доступ к логистическому двору и (перспективно) ж/д ветке</li>
+</ul>
+<h3>Потенциальные клиенты</h3>
+<div class="table-wrap">
+<table>
+<colgroup><col style="width:18%"><col style="width:22%"><col style="width:30%"><col style="width:15%"><col style="width:15%"></colgroup>
+<thead><tr><th>Сегмент</th><th>Кто арендует</th><th>Конкретные примеры / профиль</th><th class="num">Площадь</th><th class="num">Срок договора</th></tr></thead>
+<tbody>
+<tr><td><span class="tag g">Якорь</span></td><td>Маркетплейсы и крупный e-commerce</td><td>Wildberries, Ozon (региональные хабы), СберМаркет, X5 Digital — фулфилмент (комплектация заказов) для юга МО</td><td class="num">8 000–20 000 м²</td><td class="num">5–10 лет</td></tr>
+<tr><td><span class="tag g">Якорь</span></td><td>3PL-операторы</td><td>DHL Supply Chain, FM Logistic, «Ителла», «ТрансТрейд» — контрактная логистика для производителей</td><td class="num">5 000–15 000 м²</td><td class="num">3–7 лет</td></tr>
+<tr><td>Средний</td><td>Производители с дистрибуцией</td><td>Пищевые компании, стройматериалы, фарма (не холод) — склад готовой продукции для ЦФО</td><td class="num">2 000–8 000 м²</td><td class="num">3–5 лет</td></tr>
+<tr><td>Средний</td><td>Автодилеры и запчасти</td><td>Дистрибьюторы автокомпонентов, шин, масел — хаб на М2</td><td class="num">1 500–5 000 м²</td><td class="num">3–5 лет</td></tr>
+<tr><td>Малый</td><td>Импортёры и опт</td><td>Оптовые компании с импортом через Москву, нужен склад «последней мили» до регионов</td><td class="num">500–2 000 м²</td><td class="num">1–3 года</td></tr>
+</tbody>
+</table>
+</div>
+<h3>Конкуренты (радиус 30–80 км)</h3>
+<div class="comp-card"><h4>Чехов / Подольск / Домодедово</h4><p>Кластер складов B/B+ вдоль М2 и М4: проекты Raven, PNK, «Совплим», Логопарк Домодедово. Ставки 7 500–11 000 ₽/м²·мес. Преимущество конкурентов — готовые объекты и близость к аэропорту. <strong>Наше УТП:</strong> более низкая ставка, свободные площади под якоря 10 000+ м², ж/д ветка.</p></div>
+<div class="comp-card"><h4>Серпухов / Протвино (локально)</h4><p>Устаревшие склады класса C и производственные помещения без доков. Ставки 3 500–5 500 ₽/м²·мес, но низкое качество. <strong>Наше УТП:</strong> единственный современный B+ в черте Серпухова.</p></div>
+<div class="comp-card"><h4>Москва (юг, ТиНАО)</h4><p>Склады A/B+ с ставками 12 000–18 000 ₽/м²·мес и дефицитом площадей. Клиенты «вытесняются» в область. <strong>Наше УТП:</strong> экономия 30–40% при 45–60 мин до МКАД.</p></div>
+<div class="grid g4" style="margin-top:16px">
+<div class="card"><div class="lbl">CAPEX (3 фазы)</div><div class="val">~3,4 млрд ₽</div></div>
+<div class="card"><div class="lbl">Выручка год 5</div><div class="val" style="color:var(--green)">286 млн ₽</div></div>
+<div class="card"><div class="lbl">Загрузка цель</div><div class="val">85%</div></div>
+<div class="card"><div class="lbl">Payback</div><div class="val">7–9 лет</div></div>
+</div>
+</div>
+
+<!-- ИНД ПАРК -->
+<div class="panel" id="panel-indpark">
+<h2>Индустриальный парк (light industrial)</h2>
+<div class="def-box">
+<div class="term">Определение</div>
+<p><strong>Индустриальный парк</strong> — набор небольших производственно-складских корпусов (light industrial — «лёгкая промышленность») для аренды компаниям, которым не нужен крупный склад, но нужны цех, сборочная линия, мастерская или мини-завод с инженерией. Типичная планировка: производственный зал + офис + зона погрузки.</p>
+<p class="gloss">На объекте: <strong>12–18 корпусов</strong> по <strong>800–1 500 м²</strong> на <strong>4,5 га</strong>. Ставка: <strong>9 500 ₽/м²·мес</strong>. Общая инженерия: электричество, газ у границы, водоснабжение.</p>
+</div>
+<h3>Что именно предлагаем</h3>
+<ul class="bp-list">
+<li>Корпуса 800 / 1 200 / 1 500 м² — модульная сетка</li>
+<li>Высота 6–8 м, кран-балка опционально (до 3,2 т)</li>
+<li>Отдельные въезды, парковка у корпуса</li>
+<li>Возможность субаренды и совместного использования инфраструктуры</li>
+<li>Резиденты получают доступ к логистическому двору и крупному складу B+ (cross-dock)</li>
+</ul>
+<h3>Потенциальные клиенты</h3>
+<div class="table-wrap">
+<table>
+<colgroup><col style="width:18%"><col style="width:24%"><col style="width:34%"><col style="width:12%"><col style="width:12%"></colgroup>
+<thead><tr><th>Сегмент</th><th>Деятельность</th><th>Примеры / кто ищет площадь</th><th class="num">м²</th><th class="num">Срок</th></tr></thead>
+<tbody>
+<tr><td><span class="tag g">Якорь</span></td><td>Сборочное производство</td><td>Сборка мебели, металлоконструкций, электрощитов; контрактное производство для брендов</td><td class="num">1 200–3 000</td><td class="num">5–7 лет</td></tr>
+<tr><td>Средний</td><td>Пищевая переработка</td><td>Кондитерские цеха, копчение, фасовка, хлебозаводы (без тяжёлой экологии)</td><td class="num">800–1 500</td><td class="num">3–5 лет</td></tr>
+<tr><td>Средний</td><td>Автосервис и детейлинг</td><td>СТО грузовых авто, кузовной ремонт, установка оборудования</td><td class="num">600–1 200</td><td class="num">3–5 лет</td></tr>
+<tr><td>Средний</td><td>Логистика «последней мили»</td><td>Курьерские сортировочные, холодильные камеры малые, кросс-док для района</td><td class="num">500–1 000</td><td class="num">2–4 года</td></tr>
+<tr><td>Малый</td><td>Ремесленное / R&amp;D</td><td>3D-печать, прототипирование, мастерские, малые химлаборатории (согласование)</td><td class="num">300–800</td><td class="num">1–3 года</td></tr>
+<tr><td>Малый</td><td>Субподряд для крупных</td><td>Резиденты-аутсорсеры для якорного склада или производства 1 440 м²</td><td class="num">400–1 000</td><td class="num">2–3 года</td></tr>
+</tbody>
+</table>
+</div>
+<h3>Конкуренты</h3>
+<div class="comp-card"><h4>Промпарки МО (Одинцово, Люберцы, Ступино)</h4><p>Технопарки и «готовые корпуса» от 1 000 ₽/м²·мес (старый фонд) до 12 000 ₽ (новый). <strong>Наше УТП:</strong> новые корпуса, единая охрана, среда «под ключ», газ и ж/д.</p></div>
+<div class="comp-card"><h4>Бывшие заводы Серпухова</h4><p>Аренда в советских цехах — дёшево, но износ, нет нормальной логистики. <strong>Наше УТП:</strong> современные нормы, пожарная безопасность, имидж для B2B-клиентов.</p></div>
+<div class="grid g4" style="margin-top:16px">
+<div class="card"><div class="lbl">CAPEX</div><div class="val">~670 млн ₽</div></div>
+<div class="card"><div class="lbl">Выручка год 5</div><div class="val" style="color:var(--green)">205 млн ₽</div></div>
+<div class="card"><div class="lbl">Корпусов</div><div class="val">12–18</div></div>
+<div class="card"><div class="lbl">Payback</div><div class="val">8–10 лет</div></div>
+</div>
+</div>
+
+<!-- EDGE ЦОД -->
+<div class="panel" id="panel-edge">
+<h2>Edge-ЦОД — colocation (аренда стоек)</h2>
+<div class="def-box">
+<div class="term">Определение</div>
+<p><strong>Edge-ЦОД</strong> (периферийный центр обработки данных) — коммерческий дата-центр мощностью 1–3 МВт на окраине агломерации (50–80 км от центра), работающий по модели <strong>colocation</strong> (совместное размещение): клиент привозит серверы, оператор предоставляет стойку (rack), электричество, охлаждение, физическую охрану, каналы связи и SLA (гарантию доступности 99,5–99,9%).</p>
+<p class="gloss">На объекте: старт <strong>1 МВт</strong> (~105–150 стоек), резерв земли до <strong>3 МВт</strong>. Tier II (категория II по Uptime Institute). Ставка: <strong>110 000 ₽/стойка·мес</strong> (скидка к Москве 157 тыс.).</p>
+</div>
+<h3>Что именно предлагаем</h3>
+<ul class="bp-list">
+<li>Стойки 42U с электропитанием 3–5 кВт, опция до 8 кВт</li>
+<li>Два независимых ввода питания, ИБП (UPS), дизель-генератор</li>
+<li>Охлаждение с PUE (КПЭ) 1,30–1,35</li>
+<li>Кросс-соединения (cross-connect) к операторам связи, ВОЛС к МКАД</li>
+<li>Удалённые руки (remote hands) — замена дисков, перезагрузка</li>
+<li>Соответствие 152-ФЗ (персональные данные), опция для КИИ (критическая инфраструктура)</li>
+</ul>
+<h3>Потенциальные клиенты</h3>
+<div class="table-wrap">
+<table>
+<colgroup><col style="width:16%"><col style="width:20%"><col style="width:36%"><col style="width:14%"><col style="width:14%"></colgroup>
+<thead><tr><th>Сегмент</th><th>Тип</th><th>Конкретные клиенты / профиль</th><th class="num">Стойки</th><th class="num">Срок</th></tr></thead>
+<tbody>
+<tr><td><span class="tag g">Якорь</span></td><td>Региональный банк / финтех</td><td>Резервный ЦОД (DR — disaster recovery) для филиальной сети: Мособлбанк, региональные банки, МФО с лицензией</td><td class="num">20–50</td><td class="num">5–7 лет</td></tr>
+<tr><td><span class="tag g">Якорь</span></td><td>Госсектор и госкорпорации</td><td>Ростелеком (регион), Росатом (подрядчики), медучреждения МО — размещение по 152-ФЗ</td><td class="num">15–40</td><td class="num">3–5 лет</td></tr>
+<tr><td>Средний</td><td>ИТ-интеграторы и 1С-хостинг</td><td>Компании вроде «1С-Рарус», локальные интеграторы ERP, хостинг 1С для 50–200 клиентов</td><td class="num">5–20</td><td class="num">2–4 года</td></tr>
+<tr><td>Средний</td><td>E-commerce и медиа</td><td>Интернет-магазины, стриминг, CDN-узлы (кэш) — нужна близость к Москве при дефиците столичных стоек</td><td class="num">5–15</td><td class="num">2–3 года</td></tr>
+<tr><td>Малый</td><td>Стартапы и SaaS</td><td>Облачные сервисы, AI-инференс (выделенные GPU-серверы), VPN и security</td><td class="num">1–5</td><td class="num">1–2 года</td></tr>
+<tr><td>Резерв</td><td>Московские ЦОД</td><td>Операторы с загрузкой 93%+ в Москве — overflow (переполнение) на 62 км, latency 2–5 мс</td><td class="num">10–30</td><td class="num">гибкий</td></tr>
+</tbody>
+</table>
+</div>
+<h3>Конкуренты</h3>
+<div class="comp-card"><h4>Москва — крупные colocation</h4><p>РТК-ЦОД, Икселлерайт, Датапро, Linx, Selectel — ставки 140–200 тыс. ₽/стойка, очередь на 3–12 мес. <strong>Наше УТП:</strong> место сразу, дешевле на 25–30%, приемлемая задержка для DR.</p></div>
+<div class="comp-card"><h4>МО — Edge и корпоративные ЦОД</h4><p>Wildberries (Дубна, Наро-Фоминск) — закрытые, не colocation. Атомдата (Калуга/МО) — госсектор. <strong>Наше УТП:</strong> открытый коммерческий colocation на юге МО, ближе к клиентам Серпухов/Чехов/Тула.</p></div>
+<div class="comp-card"><h4>Облака (AWS, Yandex Cloud)</h4><p>Не прямые конкуренты для dedicated (выделенных) серверов и 152-ФЗ on-premise. Клиенты с жёстким compliance всё равно нуждаются в физическом ЦОД.</p></div>
+<div class="notice"><strong>Условие запуска:</strong> LOI (соглашение о намерениях) от якоря на 30–50% стоек до начала строительства. Без якоря — отложить фазу 3.</div>
+<div class="grid g4" style="margin-top:16px">
+<div class="card"><div class="lbl">CAPEX 1 МВт</div><div class="val">1,45 млрд ₽</div></div>
+<div class="card"><div class="lbl">Выручка год 3</div><div class="val" style="color:var(--green)">139 млн ₽</div></div>
+<div class="card"><div class="lbl">Загрузка цель</div><div class="val">70%</div></div>
+<div class="card"><div class="lbl">Payback</div><div class="val">10–14 лет</div></div>
+</div>
+</div>
+
+<!-- ПРОИЗВОДСТВО -->
+<div class="panel" id="panel-production">
+<h2>Производственно-административное здание</h2>
+<div class="def-box">
+<div class="term">Определение</div>
+<p><strong>Производственное здание</strong> — капитальный объект с разрешением на строительство под размещение производственных линий и административных помещений. На участке уже есть <strong>РНС (разрешение) на 1 440 м²</strong> — это позволяет начать строительство без долгого согласования назначения.</p>
+<p class="gloss">Модель: собственное производство оператора комплекса <em>или</em> сдача в аренду одному якорному производителю. Срок ввода: 8–10 месяцев.</p>
+</div>
+<h3>Что именно предлагаем</h3>
+<ul class="bp-list">
+<li>Цех ~1 000 м² + админ / бытовки ~440 м²</li>
+<li>Высота 6–8 м, нагрузка на пол 3–5 т/м²</li>
+<li>Подключение к общей КТП, газ у границы участка</li>
+<li>Возможность расширения за счёт инд. парка при росте арендатора</li>
+</ul>
+<h3>Потенциальные клиенты (аренда) или ниши (собственное)</h3>
+<div class="table-wrap">
+<table>
+<colgroup><col style="width:22%"><col style="width:38%"><col style="width:20%"><col style="width:20%"></colgroup>
+<thead><tr><th>Ниша</th><th>Примеры компаний / продукт</th><th class="num">Площадь</th><th>Модель</th></tr></thead>
+<tbody>
+<tr><td>Металлообработка</td><td>Изготовление металлоконструкций, лазерная резка, порошковая покраска для стройки МО</td><td class="num">800–1 200 м²</td><td>Аренда 5 лет</td></tr>
+<tr><td>Пищевое производство</td><td>Выпечка, полуфабрикаты, фасовка — поставки в сети юга МО</td><td class="num">600–1 000 м²</td><td>Аренда / JV</td></tr>
+<tr><td>Сборка оборудования</td><td>Насосы, вентиляция, электрощиты, сельхозтехника</td><td class="num">700–1 400 м²</td><td>Аренда</td></tr>
+<tr><td>Деревообработка / мебель</td><td>Корпусная мебель, паллеты, тара — сырьё по ж/д</td><td class="num">900–1 440 м²</td><td>Аренда</td></tr>
+<tr><td>Собственное (оператор)</td><td>Модульная сборка складских металлоконструкций для фаз 2–4 — вертикальная интеграция</td><td class="num">1 440 м²</td><td>Собственное</td></tr>
+</tbody>
+</table>
+</div>
+<h3>Конкуренты</h3>
+<div class="comp-card"><h4>Аренда цехов в Серпухове</h4><p>Морально устаревшие заводские помещения 800–2 000 ₽/м²·мес. <strong>УТП:</strong> новое здание, нормы СНиП, охрана комплекса.</p></div>
+<div class="comp-card"><h4>Строительство «с нуля» у клиента</h4><p>Срок 18–24 мес., капитальные затраты клиента. <strong>УТП:</strong> готовое разрешение, ввод за 10 мес., гибкий договор.</p></div>
+<div class="grid g4" style="margin-top:16px">
+<div class="card"><div class="lbl">CAPEX</div><div class="val">~280 млн ₽</div></div>
+<div class="card"><div class="lbl">Выручка год 2</div><div class="val" style="color:var(--green)">42 млн ₽</div></div>
+<div class="card"><div class="lbl">IRR</div><div class="val">18–25%</div></div>
+<div class="card"><div class="lbl">Payback</div><div class="val">5–7 лет</div></div>
+</div>
+</div>
+
+<!-- ЛОГ ДВОР -->
+<div class="panel" id="panel-logyard">
+<h2>Логистический двор (открытая площадка)</h2>
+<div class="def-box">
+<div class="term">Определение</div>
+<p><strong>Логистический двор</strong> — открытая твёрдое покрытие для временного хранения грузов, контейнеров (20/40 ft), техники и кросс-докинга без крыши. Услуга дополняет склад B+: клиенты склада используют двор для перегрузки, ожидания фур, сезонного переполнения.</p>
+<p class="gloss">На объекте: <strong>1,2 га</strong> с твёрдым покрытием, разворотом фур, воротами на ж/д ветку (перспектива). Доход — в составе складского договора или отдельный договор на м²/сутки.</p>
+</div>
+<h3>Услуги</h3>
+<ul class="bp-list">
+<li>Хранение контейнеров и паллет под навесом / на открытом воздухе</li>
+<li>Площадка ожидания для 10–20 фур</li>
+<li>Перегрузка контейнер ↔ фура (при наличии ричстакера у арендатора или оператора)</li>
+<li>Стоянка спецтехники резидентов инд. парка</li>
+</ul>
+<h3>Потенциальные клиенты</h3>
+<div class="table-wrap">
+<table>
+<colgroup><col style="width:24%"><col style="width:40%"><col style="width:36%"></colgroup>
+<thead><tr><th>Клиент</th><th>Потребность</th><th>Связь с комплексом</th></tr></thead>
+<tbody>
+<tr><td>Арендаторы склада B+</td><td>Пиковые объёмы (11.11, Новый год), overflow</td><td>Включено в договор или доп. опция</td></tr>
+<tr><td>Ж/д грузоотправители</td><td>Контейнерная площадка у ветки</td><td>Отдельный договор с оператором ж/д</td></tr>
+<tr><td>Стройка и тяжёлая техника</td><td>Хранение техники, металл, ЖБИ</td><td>Краткосрочная аренда площадки</td></tr>
+<tr><td>3PL без своего двора</td><td>Кросс-док на юге МО</td><td>Партнёрство с якорным складом</td></tr>
+</tbody>
+</table>
+</div>
+<h3>Конкуренты</h3>
+<div class="comp-card"><h4>Контейнерные терминалы МО</h4><p>Логопарк, терминалы в Электроуглях, Подольске — крупномасштабные хабы. <strong>УТП:</strong> локальный двор для резидентов, нет необходимости везти контейнер 40 км.</p></div>
+<div class="comp-card"><h4>Некондиционные площадки</h4><p>Грунтовые дворы в промзоне — дёшево, но без ограждения и норм. <strong>УТП:</strong> охрана КПП, твёрдое покрытие, освещение.</p></div>
+</div>
+
+<!-- МАЙНИНГ -->
+<div class="panel" id="panel-mining">
+<h2>Майнинг-ферма (добыча криптовалют)</h2>
+<div class="def-box">
+<div class="term">Определение</div>
+<p><strong>Майнинг (mining)</strong> — промышленная добыча криптовалют (в первую очередь Bitcoin) с помощью специализированных компьютеров ASIC. На объекте это <strong>контейнерный модуль</strong> 0,5–1 МВт у КТП: контейнеры с майнерами, система охлаждения, отдельный учёт электроэнергии.</p>
+<p class="gloss"><strong>Опциональная</strong> активность. Запуск только после юридического заключения по МО и при тарифе ≤6 ₽/кВт·ч. При запрете — перепрофилирование в склад-light 1 500 м².</p>
+</div>
+<h3>Модель на объекте</h3>
+<ul class="bp-list">
+<li>2 контейнера Immersion / воздушное охлаждение</li>
+<li>~140–320 машин ASIC (0,5–1 МВт)</li>
+<li>Собственный актив (не colocation для третьих лиц — регуляторный риск)</li>
+<li>Доход = добытый BTC минус OPEX (электричество, обслуживание)</li>
+</ul>
+<h3>«Клиенты»</h3>
+<div class="notice">Майнинг — <strong>не арендный бизнес</strong>. Потребители услуги — только собственник/инвестор актива. Внешние «клиенты» возможны только как <em>инвест-партнёры</em> (доля в SPV майнинга), не как арендаторы мощности.</div>
+<div class="table-wrap">
+<table>
+<colgroup><col style="width:30%"><col style="width:70%"></colgroup>
+<thead><tr><th>Тип партнёра</th><th>Кто может участвовать</th></tr></thead>
+<tbody>
+<tr><td>Финансовый инвестор</td><td>Family office, крипто-фонды с фокусом на инфраструктуру — co-invest в оборудование</td></tr>
+<tr><td>Оператор майнинга</td><td>Компании с опытом эксплуатации ASIC (BIT Mining, региональные фермы) — управление по договору</td></tr>
+<tr><td>Энергоинвестор</td><td>Держатель льготного тарифа или генерации — партнёрство «энергия + площадка»</td></tr>
+</tbody>
+</table>
+</div>
+<h3>Конкуренты</h3>
+<div class="comp-card"><h4>Крупные фермы РФ (Иркутск, Красноярск, Калининград)</h4><p>Тариф 2,5–4,5 ₽/кВт·ч. <strong>Наш минус:</strong> дороже электричество. <strong>Плюс:</strong> близость к Москве для обслуживания и легализации (если разрешат в МО).</p></div>
+<div class="comp-card"><h4>Майнинг-отели (colocation ASIC)</h4><p>BitRiver, региональные хостинги ASIC. Конкурируют за тех, кто не хочет владеть площадкой. <strong>Наше позиционирование:</strong> собственная ферма, не хостинг для сторонних.</p></div>
+<div class="grid g4" style="margin-top:16px">
+<div class="card"><div class="lbl">CAPEX 0,5 МВт</div><div class="val">220–320 млн ₽</div></div>
+<div class="card"><div class="lbl">EBITDA (при удаче)</div><div class="val" style="color:var(--yellow)">10–30 млн ₽</div></div>
+<div class="card"><div class="lbl">Риск</div><div class="val" style="font-size:16px;color:var(--red)">Высокий</div></div>
+<div class="card"><div class="lbl">Рекомендация</div><div class="val" style="font-size:14px">Опционально</div></div>
+</div>
+</div>
+
+<!-- КОНКУРЕНТЫ СВОД -->
+<div class="panel" id="panel-competitors">
+<h2>Конкурентная карта по всем направлениям</h2>
+<p class="lead">Сводная таблица прямых и косвенных конкурентов в радиусе влияния проекта (Серпухов — 30–80 км — Москва). Оценка: <span class="tag r">высокое</span> <span class="tag y">среднее</span> <span class="tag g">низкое</span> давление на проект.</p>
+<div class="table-wrap">
+<table>
+<colgroup><col style="width:14%"><col style="width:22%"><col style="width:24%"><col style="width:18%"><col style="width:12%"><col style="width:10%"></colgroup>
+<thead><tr><th>Направление</th><th>Конкурент</th><th>Локация</th><th>Сильные стороны</th><th>Наше УТП</th><th>Давление</th></tr></thead>
+<tbody>
+<tr><td rowspan="3">Склад B+</td><td>PNK / Raven Estate</td><td>Домодедово, Чехов</td><td>Готовые B+ 50–100 тыс. м², репутация</td><td>Цена ниже на 15%, якорь 20 000 м²</td><td><span class="tag y">Средн.</span></td></tr>
+<tr><td>Логопарк / ССТ</td><td>М4, ТиНАО</td><td>Транспортные развязки, аэропорт</td><td>Ж/д ветка, дешевле земля</td><td><span class="tag y">Средн.</span></td></tr>
+<tr><td>Старый фонд Серпухова</td><td>Город</td><td>Низкая цена</td><td>Качество B+, охрана, двор</td><td><span class="tag g">Низкое</span></td></tr>
+<tr><td rowspan="2">Инд. парк</td><td>Технопарки Ступино, Одинцово</td><td>МО</td><td>Экосистема, налоговые льготы ОЭЗ</td><td>Нет ОЭЗ, но газ + ж/д + новый фонд</td><td><span class="tag y">Средн.</span></td></tr>
+<tr><td>Аренда цехов заводов</td><td>Серпухов</td><td>Дёшево</td><td>Новые корпуса, имидж, безопасность</td><td><span class="tag g">Низкое</span></td></tr>
+<tr><td rowspan="3">Edge-ЦОД</td><td>РТК-ЦОД / Ростелеком</td><td>Москва</td><td>Масштаб, бренд, 27 600 стоек</td><td>Место без очереди, цена −30%</td><td><span class="tag r">Высок.</span></td></tr>
+<tr><td>Икселлерайт, Датапро</td><td>Москва</td><td>Премиум, SLA Tier III</td><td>Edge для DR, не замена Tier III</td><td><span class="tag y">Средн.</span></td></tr>
+<tr><td>Wildberries DC</td><td>Дубна, Наро-Фоминск</td><td>Собственные мощности</td><td>Открытый colocation для рынка</td><td><span class="tag g">Низкое</span></td></tr>
+<tr><td rowspan="2">Производство</td><td>Аренда на заводах</td><td>Серпухов</td><td>Цена</td><td>РНС готово, новое здание</td><td><span class="tag g">Низкое</span></td></tr>
+<tr><td>Строительство на своей земле</td><td>МО</td><td>Кастомизация</td><td>Скорость ввода 10 мес.</td><td><span class="tag y">Средн.</span></td></tr>
+<tr><td>Лог. двор</td><td>Контейнерные терминалы</td><td>Электроугли, Подольск</td><td>Масштаб, ж/д хабы</td><td>Локальный сервис резидентам</td><td><span class="tag g">Низкое</span></td></tr>
+<tr><td>Майнинг</td><td>Фермы Сибири / ДФО</td><td>Иркутск и др.</td><td>Тариф 3 ₽/кВт·ч</td><td>Только при льготном тарифе в МО</td><td><span class="tag r">Высок.</span></td></tr>
+</tbody>
+</table>
+</div>
+<h3>Стратегия против конкурентов</h3>
+<ul class="bp-list">
+<li><strong>Не конкурировать с Москвой по премиуму</strong> — позиция «доступный B+ и Edge с быстрым вводом»</li>
+<li><strong>Занять нишу «юг МО без готового B+»</strong> — первый современный комплекс в Серпухове</li>
+<li><strong>Пакетные сделки:</strong> склад + инд. корпус + стойки в ЦОД для одного якоря (ритейл, производитель)</li>
+<li><strong>Ж/д и газ</strong> — аргумент против чисто автомобильных парков на М4</li>
+</ul>
+</div>
+
+<!-- СВОДКА БИЗНЕС-ПЛАНА -->
+<div class="panel" id="panel-summary">
+<h2>Сводка бизнес-плана</h2>
+<div class="grid g4">
+<div class="card"><div class="lbl">Миссия</div><div class="val" style="font-size:15px;line-height:1.4">Единый промышленно-логистический хаб юга МО</div></div>
+<div class="card"><div class="lbl">Горизонт</div><div class="val">48 мес.</div><div class="sub">4 фазы строительства</div></div>
+<div class="card"><div class="lbl">Выручка год 5</div><div class="val" style="color:var(--green)">672 млн ₽</div></div>
+<div class="card"><div class="lbl">CAPEX</div><div class="val">6,45 млрд ₽</div></div>
+</div>
+
+<h3>Этапы реализации</h3>
+<div class="table-wrap">
+<table>
+<colgroup><col style="width:12%"><col style="width:28%"><col style="width:20%"><col style="width:40%"></colgroup>
+<thead><tr><th>Фаза</th><th>Действия</th><th class="num">Инвестиции</th><th>KPI успеха</th></tr></thead>
+<tbody>
+<tr><td>1 · 0–12 мес.</td><td>Производство 1 440 м², проектирование, ТУ на 1,5 МВт, маркетинг</td><td class="num">380 млн ₽</td><td>LOI на 30% склада ф.1 или якорь производства</td></tr>
+<tr><td>2 · 12–24 мес.</td><td>Склад 20 000 м², инд. парк 6 корпусов, дороги</td><td class="num">2 150 млн ₽</td><td>Загрузка склада 50%, парка 40%</td></tr>
+<tr><td>3 · 24–36 мес.</td><td>Склад 15 000 м², Edge-ЦОД 1 МВт, парк до 18 корп.</td><td class="num">2 750 млн ₽</td><td>Colocation 50% стоек, склад 75%</td></tr>
+<tr><td>4 · 36–48 мес.</td><td>Склад ф.3, стабилизация, опц. майнинг</td><td class="num">890 млн ₽</td><td>Загрузка портфеля 85%, EBITDA 510 млн ₽</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Каналы продаж</h3>
+<div class="grid g3">
+<div class="card"><h3 style="margin-top:0">Склад и инд. парк</h3><ul class="bp-list"><li>CBRE, JLL, NF Group — брокеры складов</li><li>Прямые переговоры с e-commerce</li><li>Администрация Серпухова / МО — инвестсовет</li></ul></div>
+<div class="card"><h3 style="margin-top:0">Edge-ЦОД</h3><ul class="bp-list"><li>ИТ-интеграторы и MSP</li><li>Банки и страховые — DR-решения</li><li>Директора ЦОД Москвы — overflow</li></ul></div>
+<div class="card"><h3 style="margin-top:0">Производство</h3><ul class="bp-list"><li>Местные производители Серпухов/Чехов</li><li>Отраслевые ассоциации</li><li>Агрегаторы industrial real estate</li></ul></div>
+</div>
+
+<h3>Критические факторы успеха</h3>
+<div class="notice danger"><strong>1. ТУ на электричество</strong> — без подтверждённой мощности 1,5+ МВт Edge-ЦОД и майнинг не запускать.<br><strong>2. Якорный арендатор склада</strong> — до старта фазы 2 нужен LOI на ≥8 000 м².<br><strong>3. LOI на colocation</strong> — до фазы 3 нужен якорь на ≥30 стоек.<br><strong>4. Команда</strong> — управляющая компания с опытом industrial и отдельный оператор ЦОД (или аутсорс).</div>
+
+<p style="margin-top:24px;font-size:14px;color:var(--muted)">Детальные финансовые таблицы, графики и сценарии — на странице <a href="index.html#investplan" style="color:var(--accent)">инвестиционного плана</a>. Технический анализ участка — <a href="index.html" style="color:var(--accent)">основной сайт</a>.</p>
+</div>
+
+</div>
+
+<footer>
+<p><strong>Бизнес-план · Серпухов 19 га</strong></p>
+<p style="margin-top:6px">Июнь 2026 · Оценочный документ · Требует уточнения после ТУ и переговоров с якорными арендаторами</p>
+</footer>
+
+<script>
+function showPanel(id){
+document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
+document.querySelectorAll('.tab-link').forEach(a=>a.classList.remove('active'));
+const panel=document.getElementById('panel-'+id);
+if(panel)panel.classList.add('on');
+document.querySelectorAll('.tab-link').forEach(a=>{
+if(a.dataset.panel===id)a.classList.add('active');
+});
+window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('.tab-link').forEach(a=>{
+a.addEventListener('click',e=>{
+e.preventDefault();
+showPanel(a.dataset.panel);
+});
+});
+document.querySelectorAll('[data-goto]').forEach(a=>{
+a.addEventListener('click',e=>{
+e.preventDefault();
+showPanel(a.dataset.goto);
+});
+});
+const hash=location.hash.replace('#','');
+if(hash&&document.getElementById('panel-'+hash))showPanel(hash);
+</script>
+</body>
+</html>
